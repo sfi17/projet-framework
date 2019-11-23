@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('material/css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ asset('material/css/mdb.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('style.css') }}">
+        {% block stylesheets %}
+        {% endblock %}
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark unique-color scrolling-navbar">
+            <div class="container">
+        <!-- Navbar brand -->
+            <a class="navbar-brand font-weight-bold" href="{{ path('home') }}">Gestion de Commandes</a>
+            <!-- Collapse button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Collapsible content -->
+            <div class="collapse navbar-collapse" id="basicExampleNav">
+                <!-- Links -->
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('produit_index') }}">Produit
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('client_index') }}">Client
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('commande_index') }}">Commande</a>
+                </li>
+                
+            </div>
+            </div>
+            <!-- Collapsible content -->
+        </nav>  
+        <div class="container content">
+        {% block body %}{% endblock %}
+        </div>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

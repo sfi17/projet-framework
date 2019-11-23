@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Client index{% endblock %}
+
+{% block body %}
+    <h1>Client index</h1>
+
+    <table class="table table-striped table-bordered table-light font-weight-bold " id="" cellspacing="0" width="100%">
+        <thead class="unique-color text-light">
+            <tr>
+                <th scope="col" class="font-weight-bold">Id</th>
+                <th scope="col" class="font-weight-bold">Nom</th>
+                <th scope="col" class="font-weight-bold">Adresse</th>
+                <th scope="col" class="font-weight-bold">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for client in clients %}
+            <tr>
+                <td scope="col" class="font-weight-bold">{{ client.id }}</td>
+                <td scope="col" class="font-weight-bold">{{ client.nom }}</td>
+                <td scope="col" class="font-weight-bold">{{ client.adresse }}</td>
+                <td scope="col" class="font-weight-bold">
+                    <a class="font-weight-bold btn unique-color btn-sm m-0 text-light" href="{{ path('client_show', {'id': client.id}) }}">show</a>
+                    <a class="font-weight-bold btn unique-color btn-sm m-0 text-light" href="{{ path('client_edit', {'id': client.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="font-weight-bold btn unique-color btn-sm m-0 text-light" href="{{ path('client_new') }}">Create new</a>
+{% endblock %}
